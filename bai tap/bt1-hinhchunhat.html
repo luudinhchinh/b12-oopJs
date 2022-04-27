@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canva" style="width: 500px; height: 500px; border: 1px solid"></canvas>
+    <script>
+        class HCN {
+            chieuDai;
+            chieuRong;
+            mau;
+            x;
+            y;
+            constructor(chieuDai,chieuRong,mau,x,y){
+                this.chieuDai = chieuDai;
+                this.chieuRong = chieuRong;
+                this.mau = mau;
+                this.x = x;
+                this.y = y;
+            }
+            dienTich(){
+                return this.chieuDai*this.chieuRong;
+            }
+            chuVi(){
+                return (this.chieuDai+this.chieuRong)*2;
+            }
+            veHCN(){
+                let ctx = document.getElementById("canva").getContext("2d");
+                ctx.beginPath();
+                ctx.fillStyle = this.mau;
+                ctx.fillRect(this.x,this.y,this.chieuDai,this.chieuRong);
+                ctx.fillStyle="red";
+                ctx.stroke();
+            }
+            hien(){
+                alert("chu vi: " + hcn.chuVi() + " , " + "diện tích: " + hcn.dienTich());
+            }
+
+        }
+        
+        let hcn = new HCN(300,100,"red",50,50);
+        hcn.veHCN();
+        hcn.hien();
+        // let hc = new HCN();
+        // hc.chieuDai = 100;
+        // hc.chieuRong = 140;
+        // hc.x = 50;
+        // hc.y = 50;
+        // hc.mau = "blue";
+        // hc.veHCN();
+    </script>
+</body>
+</html>

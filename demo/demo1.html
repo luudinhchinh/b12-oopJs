@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class account{
+            usernam;
+            password;
+            constructor(u,p){
+                this.usernam = u;
+                this.password = p;
+            }
+        }
+        let account1=new account('admin',1)
+        let account2=new account('abc',2)
+        let accountN=[account1,account2];
+        function login(){
+            let log = document.getElementById("login");
+            let a=usernam.value;
+            let b=password.value;
+            if(a==u && b==p){
+                window.location="display.html"
+            }
+        }
+        function register(){
+            let a=usernam.value;
+            let b=password.value;
+            let accounta= new account(a,b);
+            accountN.push(accounta);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class temperature{
+            nhietDo;
+            constructor(nhietDo){
+                this.nhietDo = nhietDo;
+            }
+            doCF(){
+                return this.nhietDo*1.8 + 32;
+            }
+            doCKenvin(){
+                return this.nhietDo + 273.15;
+            }
+            hien(){
+                alert("độ C sang độ F: " + convert.doCF() + "," + " độ C sang độ Kenvin: " + convert.doCKenvin());
+            }
+        }
+        let convert = new temperature(12)
+        convert.hien();
+    </script>
+</body>
+</html>

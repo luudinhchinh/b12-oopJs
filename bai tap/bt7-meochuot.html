@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <button onclick="meoTt()">thông tin mèo</button>
+    <button onclick="meoK()">mèo kêu</button>
+    <button onclick="meoAn()">ăn chuột</button>
+    <button onclick="meoBa()">bắt chuột</button> <br>  <br>
+    <button onclick="chuotTt()">thông tin chuột</button>
+    <button onclick="chuotK()">chuột kêu</button>
+    <script>
+        class Chuot {
+            constructor(tenC,khoiLuongC,tocDoC,trangThaiC){
+                this.tenC = tenC;
+                this.khoiLuongC = khoiLuongC;
+                this.tocDoC = tocDoC;
+                this.trangThaiC = trangThaiC;
+            }
+            keu(){
+                alert("chit chit!!!");
+            }
+            thongTin(){
+                alert("tên: " + this.tenC + " khối lượng: " + this.khoiLuongC + " kg, tốc độ: " + this.tocDoC + " s, trạng thái: " + this.trangThaiC);
+            }
+            // ăn chuột
+            biAn(){
+                this.trangThaiC = this.trangThaiC-1;
+                return this.trangThaiC;
+            }
+            tocDo(){
+                return this.tocDoC;
+            }
+        }
+        class Meo {
+            constructor(tenM,khoiLuongM,tocDoM,Chuot){
+                this.tenM = tenM;
+                this.khoiLuongM = khoiLuongM;
+                this.tocDoM = tocDoM;
+                this.setChuot = Chuot;
+            }
+            keuM(){
+                alert("meo meo!!");
+            }
+            thongTinM(){
+                alert("tên: " + this.tenM + " khối lượng: " + this.khoiLuongM + " kg, tốc độ: " + this.tocDoM + " s")
+            }
+            anChuot(){
+                if(this.setChuot.biAn()>0){
+                    this.khoiLuongM = this.khoiLuongM+1;
+                    alert("mèo đã ăn được một con chuột và cân nặng là: " + this.khoiLuongM);
+                }else alert("ko có");
+            }
+            sanChuot(){
+                if(this.tocDoM>this.setChuot.tocDo()){
+                    alert("mèo đã bắt được 01 con chuột, bắt lại tiếp đi");
+                }
+            }
+        }
+        let chuot = new Chuot("chuột",100,100,100);
+        let meo = new Meo("mèo",100,200,chuot);
+        //hàm mèo
+        function meoTt(){
+            meo.thongTinM();
+        }
+        function meoK(){
+            meo.keuM();
+        }
+        function meoAn(){
+            meo.anChuot();
+        }
+        function meoBa(){
+            meo.sanChuot();
+        }
+        //hàm chuột
+        function chuotTt(){
+            chuot.thongTin();
+        }
+        function chuotK(){
+            chuot.keu();
+        }
+    </script>
+</body>
+</html>

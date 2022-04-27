@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="on()">bật</button>
+    <button onclick="off()">tắt</button>
+    <button onclick="connect()">kết nối</button>
+    <script>
+        class CongTac {
+            trangThai = false;
+            bongDen = null;
+            ketNoi(){
+                if(this.trangThai==true){
+                    alert("kết nối thành công");
+                }else alert("chưa kết nối");
+            }
+            bat(){
+                    this.trangThai = true;
+                    alert("công tắc bật");
+            }
+            tat(){
+                this.trangThai = false;
+                alert("công tắc tắt");
+            }
+        }
+        class Den {
+            trangThais = false;
+            
+            batDen(){
+                this.trangThais == true;
+                alert("đã bật bóng đèn");
+            }
+            tatDen(){
+                this.trangThais==false;
+                alert("đã tắt bóng đèn");
+            }
+        }
+        let nutBam = new CongTac();
+        let bong = new Den();
+        
+        function on(){
+            bong.batDen(nutBam.bat());
+        }
+        function off(){
+            bong.tatDen(nutBam.tat());
+        }
+        function ketNoi(){
+            nutBam.ketNoi();
+        }
+    </script>
+</body>
+</html>

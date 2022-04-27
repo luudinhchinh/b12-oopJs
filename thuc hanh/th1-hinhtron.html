@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class hinhTron {
+            banKinh;
+            mau;
+            constructor(banKinh,mau){
+                this.banKinh = banKinh;
+                this.mau = mau;
+            }
+            banK(){
+                return this.banKinh;
+            }
+            dienTich(){
+                return Math.PI*this.banKinh*this.banKinh;
+            }
+        }
+        let ht = new hinhTron(2);
+        let getBK = ht.banK();
+        let getDT = ht.dienTich()
+        alert("bán kính: " + getBK +","+"diện tích: " + getDT);
+    </script>
+</body>
+</html>

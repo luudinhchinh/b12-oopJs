@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="batTV()">bật tivi</button>
+    <button onclick="chuyenK7()">chuyển kênh 7</button>
+    <button onclick="reKenh3()">remote kenh 3</button>
+    <button onclick="tang2()">tăng âm lượng lên </button>
+    <button onclick="giam2()">giảm âm lượng xuống </button>
+    <button onclick="tatTV()">tắt tivi</button>
+    <script>
+        class Remote {
+            constructor(ma,chuyenKenh,amLuong){
+                this.ma = ma;
+                this.chuyenKenh = chuyenKenh;
+                this.amLuong = amLuong;
+            }
+            dieuKhienKenh(){
+                return this.ma;
+            }
+            // doiKenh(){
+            //     let kenh = prompt("nhập vào kênh bạn muốn mở");
+            //     alert("bạn đã chuyển sang kênh" + kenh);
+            // }
+            tangAmluong(){
+                this.amLuong = this.amLuong+2;
+                console.log(this.amLuong);
+                alert("bạn đã tăng âm lượng lên: " + this.amLuong);
+            }
+            giamAmLuong(){
+                this.amLuong = this.amLuong-2;
+                alert("bạn đã giảm âm lượng xuống: " + this.amLuong);
+            }
+            chuyenKenh3(kenh3){
+                this.kenh3 = kenh3;
+                if(this.kenh3>0){
+                    alert("kênh bạn muốn đây rồi");
+                }else alert("kênh bạn tìm ko có");
+            }
+        }
+        class Tivi {
+            constructor(kenhHt,amLuongHt,trangThai){
+                this.kenhHt = kenhHt;
+                this.amLuongHt = null;
+                this.trangThai = trangThai;
+                
+            }
+            batTat(onOff){
+                this.onOff = onOff;
+                if(this.onOff==true){
+                    alert("đã bật tivi");
+                }else alert("đã tắt tivi");
+            }
+            chuyenKenhNaoDo(){
+                this.kenhHt.dieuKhienKenh();
+            }
+            kenh7(nhapKenh7){
+                this.nhapKenh7 = nhapKenh7;
+                alert("bạn bật kênh 7: " + this.nhapKenh7 );
+
+            }
+        }
+        let DieuKhien = new Remote(11,12,20);
+        let Sony = new Tivi("vtv5",true)
+        function batTV(){
+            Sony.batTat(true);
+        }
+        function chuyenK7(){
+            let k7 = prompt("nhập kênh 7 bạn muốn chuyển");
+            Sony.kenh7(k7);
+        }
+        function reKenh3(){
+            let k3 = prompt("nhập vào kênh 3 bạn muốn");
+            DieuKhien.chuyenKenh3(k3);
+        }
+        function tang2(){
+            DieuKhien.tangAmluong();
+        }
+        function giam2(){
+            DieuKhien.giamAmLuong();
+        }
+        function tatTV(){
+            Sony.batTat(false);
+        }
+        
+    </script>
+</body>
+</html>
